@@ -1,0 +1,318 @@
+{
+  "id": "component:web-core.button.addon-size-follows-button-size",
+  "targetId": "target.root",
+  "targetScope": "self",
+  "capability": "dependency.component-set",
+  "permission": "constrained",
+  "controlPaths": [
+    {
+      "kind": "host-property",
+      "property": "Size",
+      "required": true,
+      "exclusive": true
+    }
+  ],
+  "constraints": [
+    {
+      "type": "dependencyDomain",
+      "dependency": {
+        "subjects": [
+          {
+            "targetRole": "left-addon",
+            "relativePath": "LeftAddon"
+          },
+          {
+            "targetRole": "right-addon",
+            "relativePath": "RightAddon"
+          }
+        ],
+        "field": "componentSetKey",
+        "baselinePolicy": "require-domain",
+        "sourceFact": "semanticApi.size",
+        "cases": [
+          {
+            "when": [
+              48,
+              56,
+              64,
+              72
+            ],
+            "values": [
+              "f33ce04b0651b062f10be88deab065ba67bf7171"
+            ]
+          },
+          {
+            "when": [
+              32,
+              40
+            ],
+            "values": [
+              "24e2f4ddddc89ef024f8f1ef3f4bc51a0e5eac68"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "dependencyDomain",
+      "dependency": {
+        "subjects": [
+          {
+            "targetRole": "left-addon",
+            "relativePath": "LeftAddon"
+          },
+          {
+            "targetRole": "right-addon",
+            "relativePath": "RightAddon"
+          }
+        ],
+        "field": "portName",
+        "portNames": [
+          "Icon-24",
+          "Icon-20",
+          "Icon-16"
+        ],
+        "catalogs": [
+          "Icons -- glyph-26"
+        ],
+        "baselinePolicy": "require-domain",
+        "sourceFact": "semanticApi.size",
+        "cases": [
+          {
+            "when": [
+              32,
+              40
+            ],
+            "values": [
+              "Icon-20"
+            ]
+          },
+          {
+            "when": [
+              48,
+              56,
+              64,
+              72
+            ],
+            "values": [
+              "Icon-24"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "dependencyDomain",
+      "dependency": {
+        "subjects": [
+          {
+            "targetRole": "left-addon",
+            "relativePath": "LeftAddon"
+          },
+          {
+            "targetRole": "right-addon",
+            "relativePath": "RightAddon"
+          }
+        ],
+        "field": "width",
+        "portNames": [
+          "Icon-24",
+          "Icon-20",
+          "Icon-16"
+        ],
+        "catalogs": [
+          "Icons -- glyph-26"
+        ],
+        "tolerance": 0.01,
+        "baselinePolicy": "require-domain",
+        "sourceFact": "semanticApi.size",
+        "cases": [
+          {
+            "when": [
+              32,
+              40
+            ],
+            "values": [
+              20
+            ]
+          },
+          {
+            "when": [
+              48,
+              56,
+              64,
+              72
+            ],
+            "values": [
+              24
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "dependencyDomain",
+      "dependency": {
+        "subjects": [
+          {
+            "targetRole": "left-addon",
+            "relativePath": "LeftAddon"
+          },
+          {
+            "targetRole": "right-addon",
+            "relativePath": "RightAddon"
+          }
+        ],
+        "field": "height",
+        "portNames": [
+          "Icon-24",
+          "Icon-20",
+          "Icon-16"
+        ],
+        "catalogs": [
+          "Icons -- glyph-26"
+        ],
+        "tolerance": 0.01,
+        "baselinePolicy": "require-domain",
+        "sourceFact": "semanticApi.size",
+        "cases": [
+          {
+            "when": [
+              32,
+              40
+            ],
+            "values": [
+              20
+            ]
+          },
+          {
+            "when": [
+              48,
+              56,
+              64,
+              72
+            ],
+            "values": [
+              24
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "dependencyDomain",
+      "values": [
+        "s"
+      ],
+      "dependency": {
+        "subjects": [
+          {
+            "targetRole": "left-addon",
+            "relativePath": "LeftAddon"
+          },
+          {
+            "targetRole": "right-addon",
+            "relativePath": "RightAddon"
+          }
+        ],
+        "field": "variantProperty",
+        "property": "Size",
+        "portNames": [
+          "Icon-24",
+          "Icon-20",
+          "Icon-16"
+        ],
+        "activePorts": [
+          "Icon-16"
+        ],
+        "catalogs": [
+          "Icons -- general (glyph)"
+        ],
+        "baselinePolicy": "require-domain"
+      }
+    },
+    {
+      "type": "dependencyDomain",
+      "values": [
+        "20"
+      ],
+      "dependency": {
+        "subjects": [
+          {
+            "targetRole": "left-addon",
+            "relativePath": "LeftAddon"
+          },
+          {
+            "targetRole": "right-addon",
+            "relativePath": "RightAddon"
+          }
+        ],
+        "field": "variantProperty",
+        "property": "Size",
+        "portNames": [
+          "Icon-24",
+          "Icon-20",
+          "Icon-16"
+        ],
+        "activePorts": [
+          "Icon-20"
+        ],
+        "catalogs": [
+          "Icons -- glyph-26"
+        ],
+        "baselinePolicy": "require-domain"
+      }
+    },
+    {
+      "type": "dependencyDomain",
+      "values": [
+        "24"
+      ],
+      "dependency": {
+        "subjects": [
+          {
+            "targetRole": "left-addon",
+            "relativePath": "LeftAddon"
+          },
+          {
+            "targetRole": "right-addon",
+            "relativePath": "RightAddon"
+          }
+        ],
+        "field": "variantProperty",
+        "property": "Size",
+        "portNames": [
+          "Icon-24",
+          "Icon-20",
+          "Icon-16"
+        ],
+        "activePorts": [
+          "Icon-24"
+        ],
+        "catalogs": [
+          "Icons -- glyph-26"
+        ],
+        "baselinePolicy": "require-domain"
+      }
+    }
+  ],
+  "applicability": {
+    "variants": "all",
+    "modes": "all",
+    "platforms": [
+      "desktop",
+      "mobile-web"
+    ]
+  },
+  "severity": "error",
+  "rationale": "Button 32/40 → Addon16 + активный Icon-20 + glyph-26 instance 20×20 px; Button 48/56/64/72 → Addon24 + активный Icon-24 + glyph-26 instance 24×24 px. Обе видимые стороны проверяются. Component set определяет контейнер; фактический размер берётся у INSTANCE в доказанном swap-порту, не у PaintMe/vector или Addon. Допуск размеров ±0.01 px. Порт и размеры проверяются у glyph-26, включая неизменённый default. Нетронутый legacy не подпадает под эти три проверки; запрет новой legacy-замены остаётся в addon-uses-glyph-26. Неизвестное происхождение/размер не считается успешной проверкой. Номинальный Size проверяется отдельно от bounds по доказанному каталогу и активному порту: general (glyph) + Icon-16 → Size=s; glyph-26 + Icon-20 → Size=20; glyph-26 + Icon-24 → Size=24. Значения берутся из типизированного VARIANT-свойства выбранной иконки; названия слоёв и геометрия не определяют Size. Корректный Size не отменяет запрет новой legacy-замены.",
+  "message": "Addon, активный порт, Size варианта или размер instance иконки не соответствует контракту Button.",
+  "status": "reviewed",
+  "owner": "design-system-authors",
+  "sourceRefs": [
+    "ds-ai-hub.button.bridge"
+  ],
+  "execution": {
+    "route": "predicate"
+  }
+}

@@ -1,0 +1,3 @@
+// Canonical implementation is shared with Apollo v4.
+export * from '../../../Apollo/packages/component-contract-core/src/compiler';
+export { compileManualSource } from './dependency-usage';

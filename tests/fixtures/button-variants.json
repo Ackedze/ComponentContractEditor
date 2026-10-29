@@ -1,0 +1,2116 @@
+{
+  "source": "Athena Button 2026-08-14; structural projection, not a live Figma capture",
+  "sourceHash": "4bbea252916660b97955c293cffc178a01f34b1c1bd0c9192018f875c6cd0085",
+  "candidates": [
+    {
+      "id": "button.desktop",
+      "name": "[D] Button",
+      "componentKey": "f9979d6cc8598aec25f721e0a45b7eef2eeb0088",
+      "platform": "desktop",
+      "role": "main",
+      "status": "active",
+      "figma": {
+        "defaultVariantKey": "4ada6f8688b752d9452249fd8e8bc3545a76c708",
+        "structureSignature": [
+          {
+            "nodeId": 1,
+            "parentId": null,
+            "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+            "type": "COMPONENT"
+          },
+          {
+            "nodeId": 2,
+            "parentId": 1,
+            "name": "LeftAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 3,
+            "parentId": 2,
+            "name": "LeftAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 4,
+            "parentId": 3,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 5,
+            "parentId": 4,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 6,
+            "parentId": 5,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 7,
+            "parentId": 6,
+            "name": "icon",
+            "type": "VECTOR"
+          },
+          {
+            "nodeId": 8,
+            "parentId": 1,
+            "name": "Text",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 9,
+            "parentId": 8,
+            "name": "Label",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 10,
+            "parentId": 8,
+            "name": "Hint",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 11,
+            "parentId": 1,
+            "name": "RightAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 12,
+            "parentId": 11,
+            "name": "RightAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 13,
+            "parentId": 12,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 14,
+            "parentId": 13,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 15,
+            "parentId": 14,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 16,
+            "parentId": 15,
+            "name": "icon",
+            "type": "VECTOR"
+          }
+        ],
+        "variants": {
+          "variantKeys": [
+            {
+              "key": "4ada6f8688b752d9452249fd8e8bc3545a76c708",
+              "id": "47:50696",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "False",
+                "DisabledState": "False"
+              }
+            },
+            {
+              "key": "5a9a0a342aa12447e0de0a0d817fc3af9aa18caf",
+              "id": "47:52064",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "True",
+                "DisabledState": "False"
+              }
+            }
+          ]
+        },
+        "variantStructures": {
+          "5a9a0a342aa12447e0de0a0d817fc3af9aa18caf": [
+            {
+              "op": "update",
+              "id": 1,
+              "value": {
+                "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False"
+              }
+            },
+            {
+              "op": "remove",
+              "id": 8
+            },
+            {
+              "op": "remove",
+              "id": 9
+            },
+            {
+              "op": "remove",
+              "id": 10
+            },
+            {
+              "op": "remove",
+              "id": 11
+            },
+            {
+              "op": "remove",
+              "id": 12
+            },
+            {
+              "op": "remove",
+              "id": 13
+            },
+            {
+              "op": "remove",
+              "id": 14
+            },
+            {
+              "op": "remove",
+              "id": 15
+            },
+            {
+              "op": "remove",
+              "id": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "button-inverted.desktop",
+      "name": "[D] Button_Inverted",
+      "componentKey": "5781a924d5b55813fab42082574f06e463eebd80",
+      "platform": "desktop",
+      "role": "main",
+      "status": "active",
+      "figma": {
+        "defaultVariantKey": "a08623ef21d8960b8c819c0c2040dcb7d6e795e9",
+        "structureSignature": [
+          {
+            "nodeId": 1,
+            "parentId": null,
+            "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+            "type": "COMPONENT"
+          },
+          {
+            "nodeId": 2,
+            "parentId": 1,
+            "name": "LeftAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 3,
+            "parentId": 2,
+            "name": "LeftAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 4,
+            "parentId": 3,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 5,
+            "parentId": 4,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 6,
+            "parentId": 5,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 7,
+            "parentId": 6,
+            "name": "icon",
+            "type": "VECTOR"
+          },
+          {
+            "nodeId": 8,
+            "parentId": 1,
+            "name": "Text",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 9,
+            "parentId": 8,
+            "name": "Label",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 10,
+            "parentId": 8,
+            "name": "Hint",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 11,
+            "parentId": 1,
+            "name": "RightAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 12,
+            "parentId": 11,
+            "name": "RightAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 13,
+            "parentId": 12,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 14,
+            "parentId": 13,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 15,
+            "parentId": 14,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 16,
+            "parentId": 15,
+            "name": "icon",
+            "type": "VECTOR"
+          }
+        ],
+        "variants": {
+          "variantKeys": [
+            {
+              "key": "a08623ef21d8960b8c819c0c2040dcb7d6e795e9",
+              "id": "47:50704",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "False",
+                "DisabledState": "False"
+              }
+            },
+            {
+              "key": "0deb790b8aa997e514771d84a522ebaf88a84fc0",
+              "id": "47:52067",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "True",
+                "DisabledState": "False"
+              }
+            }
+          ]
+        },
+        "variantStructures": {
+          "0deb790b8aa997e514771d84a522ebaf88a84fc0": [
+            {
+              "op": "update",
+              "id": 1,
+              "value": {
+                "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False"
+              }
+            },
+            {
+              "op": "remove",
+              "id": 8
+            },
+            {
+              "op": "remove",
+              "id": 9
+            },
+            {
+              "op": "remove",
+              "id": 10
+            },
+            {
+              "op": "remove",
+              "id": 11
+            },
+            {
+              "op": "remove",
+              "id": 12
+            },
+            {
+              "op": "remove",
+              "id": 13
+            },
+            {
+              "op": "remove",
+              "id": 14
+            },
+            {
+              "op": "remove",
+              "id": 15
+            },
+            {
+              "op": "remove",
+              "id": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "button.mobile-web",
+      "name": "[M] Button",
+      "componentKey": "7fb0c8679c682f7f82c031538c1b9efef8d98f1c",
+      "platform": "mobile-web",
+      "role": "main",
+      "status": "active",
+      "figma": {
+        "defaultVariantKey": "976f4abb1064864d35124ac45d42ed71c881167e",
+        "structureSignature": [
+          {
+            "nodeId": 1,
+            "parentId": null,
+            "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+            "type": "COMPONENT"
+          },
+          {
+            "nodeId": 2,
+            "parentId": 1,
+            "name": "LeftAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 3,
+            "parentId": 2,
+            "name": "LeftAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 4,
+            "parentId": 3,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 5,
+            "parentId": 4,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 6,
+            "parentId": 5,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 7,
+            "parentId": 6,
+            "name": "icon",
+            "type": "VECTOR"
+          },
+          {
+            "nodeId": 8,
+            "parentId": 1,
+            "name": "Text",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 9,
+            "parentId": 8,
+            "name": "Label",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 10,
+            "parentId": 8,
+            "name": "Hint",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 11,
+            "parentId": 1,
+            "name": "RightAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 12,
+            "parentId": 11,
+            "name": "RightAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 13,
+            "parentId": 12,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 14,
+            "parentId": 13,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 15,
+            "parentId": 14,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 16,
+            "parentId": 15,
+            "name": "icon",
+            "type": "VECTOR"
+          }
+        ],
+        "variants": {
+          "variantKeys": [
+            {
+              "key": "976f4abb1064864d35124ac45d42ed71c881167e",
+              "id": "47:52209",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "False",
+                "DisabledState": "False"
+              }
+            },
+            {
+              "key": "7dd3ce6945a7eb33f57cc5719c93f6f70be9e976",
+              "id": "47:52665",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "True",
+                "DisabledState": "False"
+              }
+            }
+          ]
+        },
+        "variantStructures": {
+          "7dd3ce6945a7eb33f57cc5719c93f6f70be9e976": [
+            {
+              "op": "update",
+              "id": 1,
+              "value": {
+                "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False"
+              }
+            },
+            {
+              "op": "remove",
+              "id": 8
+            },
+            {
+              "op": "remove",
+              "id": 9
+            },
+            {
+              "op": "remove",
+              "id": 10
+            },
+            {
+              "op": "remove",
+              "id": 11
+            },
+            {
+              "op": "remove",
+              "id": 12
+            },
+            {
+              "op": "remove",
+              "id": 13
+            },
+            {
+              "op": "remove",
+              "id": 14
+            },
+            {
+              "op": "remove",
+              "id": 15
+            },
+            {
+              "op": "remove",
+              "id": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "button-inverted.mobile-web",
+      "name": "[M] Button_Inverted",
+      "componentKey": "3d1fe2250afc57dc8d43a868fc986b7beb6672ed",
+      "platform": "mobile-web",
+      "role": "main",
+      "status": "active",
+      "figma": {
+        "defaultVariantKey": "70bd7e586f2ae8d8eb481651f7be685268470c6d",
+        "structureSignature": [
+          {
+            "nodeId": 1,
+            "parentId": null,
+            "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+            "type": "COMPONENT"
+          },
+          {
+            "nodeId": 2,
+            "parentId": 1,
+            "name": "LeftAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 3,
+            "parentId": 2,
+            "name": "LeftAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 4,
+            "parentId": 3,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 5,
+            "parentId": 4,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 6,
+            "parentId": 5,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 7,
+            "parentId": 6,
+            "name": "icon",
+            "type": "VECTOR"
+          },
+          {
+            "nodeId": 8,
+            "parentId": 1,
+            "name": "Text",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 9,
+            "parentId": 8,
+            "name": "Label",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 10,
+            "parentId": 8,
+            "name": "Hint",
+            "type": "TEXT"
+          },
+          {
+            "nodeId": 11,
+            "parentId": 1,
+            "name": "RightAddon",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 12,
+            "parentId": 11,
+            "name": "RightAddon",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 13,
+            "parentId": 12,
+            "name": "Fixer",
+            "type": "FRAME"
+          },
+          {
+            "nodeId": 14,
+            "parentId": 13,
+            "name": "PaintMe",
+            "type": "BOOLEAN_OPERATION"
+          },
+          {
+            "nodeId": 15,
+            "parentId": 14,
+            "name": "diamonds",
+            "type": "INSTANCE"
+          },
+          {
+            "nodeId": 16,
+            "parentId": 15,
+            "name": "icon",
+            "type": "VECTOR"
+          }
+        ],
+        "variants": {
+          "variantKeys": [
+            {
+              "key": "70bd7e586f2ae8d8eb481651f7be685268470c6d",
+              "id": "47:52217",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=False, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "False",
+                "DisabledState": "False"
+              }
+            },
+            {
+              "key": "bdda794d9d059a6c80aaeed632ac96f1e004c011",
+              "id": "47:52668",
+              "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False",
+              "properties": {
+                "View": "Accent",
+                "Size": "56",
+                "Shape": "Rectangular",
+                "SingleIcon": "True",
+                "DisabledState": "False"
+              }
+            }
+          ]
+        },
+        "variantStructures": {
+          "bdda794d9d059a6c80aaeed632ac96f1e004c011": [
+            {
+              "op": "update",
+              "id": 1,
+              "value": {
+                "name": "View=Accent, Size=56, Shape=Rectangular, SingleIcon=True, DisabledState=False"
+              }
+            },
+            {
+              "op": "remove",
+              "id": 8
+            },
+            {
+              "op": "remove",
+              "id": 9
+            },
+            {
+              "op": "remove",
+              "id": 10
+            },
+            {
+              "op": "remove",
+              "id": 11
+            },
+            {
+              "op": "remove",
+              "id": 12
+            },
+            {
+              "op": "remove",
+              "id": 13
+            },
+            {
+              "op": "remove",
+              "id": 14
+            },
+            {
+              "op": "remove",
+              "id": 15
+            },
+            {
+              "op": "remove",
+              "id": 16
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "manual": {
+    "schemaVersion": "apollo.component-contract.manual.v2-experimental",
+    "documentType": "component-contract-manual",
+    "component": {
+      "componentId": "core.web.button",
+      "familyId": "core.web.button",
+      "contractId": "core.web.button",
+      "family": "Button",
+      "layer": "core",
+      "library": "Web _ Core",
+      "platform": "desktop",
+      "platforms": [
+        "desktop",
+        "mobile-web",
+        "adaptive-web"
+      ],
+      "lifecycle": "active",
+      "componentKey": "f9979d6cc8598aec25f721e0a45b7eef2eeb0088"
+    },
+    "semantics": {
+      "purpose": "Основной интерактивный компонент для запуска пользовательского действия с явной визуальной иерархией.",
+      "useWhen": [
+        "Пользователь запускает действие, а не переходит по навигационной ссылке.",
+        "Нужно обозначить главное или дополнительное действие на экране.",
+        "Стандартные view Button покрывают нужную визуальную приоритетность."
+      ],
+      "doNotUseWhen": [
+        {
+          "condition": "Переход ведёт на другой URL или раздел без изменения состояния.",
+          "useComponentId": "core.web.link"
+        },
+        {
+          "condition": "Действие должно быть представлено только иконкой без стандартной Button-композиции.",
+          "useComponentId": "core.web.icon-button"
+        },
+        {
+          "condition": "Нужно раскрыть меню выбора действий.",
+          "useComponentId": "core.web.picker-button"
+        },
+        {
+          "condition": "Нужен особый промо-цвет или градиент, которого нет в стандартных view.",
+          "useComponentId": "core.web.custom-button"
+        }
+      ],
+      "relatedComponentIds": [
+        "core.web.link",
+        "core.web.icon-button",
+        "core.web.picker-button",
+        "core.web.custom-button",
+        "core.web.spinner",
+        "core.web.addon"
+      ],
+      "keywords": [
+        "button",
+        "action",
+        "cta",
+        "кнопка",
+        "действие"
+      ]
+    },
+    "representations": [
+      {
+        "id": "core.web.button.figma.desktop",
+        "kind": "figma",
+        "platform": "desktop",
+        "surface": "default",
+        "status": "verified",
+        "locator": {
+          "fileKey": "lGWq8DtnUcSkRasagBuwq6",
+          "nodeId": "47:50695",
+          "componentSetKey": "f9979d6cc8598aec25f721e0a45b7eef2eeb0088",
+          "componentKey": "f9979d6cc8598aec25f721e0a45b7eef2eeb0088",
+          "name": "[D] Button"
+        }
+      },
+      {
+        "id": "core.web.button.figma.mobile",
+        "kind": "figma",
+        "platform": "mobile-web",
+        "surface": "default",
+        "status": "verified",
+        "locator": {
+          "fileKey": "lGWq8DtnUcSkRasagBuwq6",
+          "nodeId": "47:52208",
+          "componentSetKey": "7fb0c8679c682f7f82c031538c1b9efef8d98f1c",
+          "componentKey": "7fb0c8679c682f7f82c031538c1b9efef8d98f1c",
+          "name": "[M] Button"
+        }
+      },
+      {
+        "id": "core.web.button.figma.inverted-desktop",
+        "kind": "figma",
+        "platform": "desktop",
+        "surface": "inverted",
+        "status": "verified",
+        "locator": {
+          "fileKey": "lGWq8DtnUcSkRasagBuwq6",
+          "nodeId": "650:19395",
+          "componentSetKey": "5781a924d5b55813fab42082574f06e463eebd80",
+          "componentKey": "5781a924d5b55813fab42082574f06e463eebd80",
+          "name": "[D] Button_Inverted"
+        }
+      },
+      {
+        "id": "core.web.button.figma.inverted-mobile",
+        "kind": "figma",
+        "platform": "mobile-web",
+        "surface": "inverted",
+        "status": "verified",
+        "locator": {
+          "fileKey": "lGWq8DtnUcSkRasagBuwq6",
+          "nodeId": "650:20356",
+          "componentSetKey": "3d1fe2250afc57dc8d43a868fc986b7beb6672ed",
+          "componentKey": "3d1fe2250afc57dc8d43a868fc986b7beb6672ed",
+          "name": "[M] Button_Inverted"
+        }
+      },
+      {
+        "id": "core.web.button.code.desktop",
+        "kind": "code",
+        "platform": "desktop",
+        "surface": "react",
+        "status": "draft",
+        "locator": {
+          "package": "@alfalab/core-components/button",
+          "export": "ButtonDesktop"
+        }
+      },
+      {
+        "id": "core.web.button.code.mobile",
+        "kind": "code",
+        "platform": "mobile-web",
+        "surface": "react",
+        "status": "draft",
+        "locator": {
+          "package": "@alfalab/core-components/button",
+          "export": "ButtonMobile"
+        }
+      },
+      {
+        "id": "core.web.button.code.adaptive",
+        "kind": "code",
+        "platform": "adaptive-web",
+        "surface": "react",
+        "status": "draft",
+        "locator": {
+          "package": "@alfalab/core-components/button",
+          "export": "Button"
+        }
+      }
+    ],
+    "semanticApi": [
+      {
+        "id": "view",
+        "kind": "variant",
+        "valueType": "enum",
+        "domain": [
+          "accent",
+          "primary",
+          "secondary",
+          "outlined",
+          "transparent",
+          "text"
+        ],
+        "defaultValue": "secondary",
+        "description": "Визуальная приоритетность действия.",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.View",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.View",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.View",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.View",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.view"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.view"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.view"
+          }
+        ]
+      },
+      {
+        "id": "size",
+        "kind": "variant",
+        "valueType": "enum",
+        "domain": [
+          32,
+          40,
+          48,
+          56,
+          64,
+          72
+        ],
+        "defaultValue": 56,
+        "description": "Высота кнопки.",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.Size",
+            "transform": "number-to-string"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.Size",
+            "transform": "number-to-string"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.Size",
+            "transform": "number-to-string"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.Size",
+            "transform": "number-to-string"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.size"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.size"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.size"
+          }
+        ]
+      },
+      {
+        "id": "shape",
+        "kind": "variant",
+        "valueType": "enum",
+        "domain": [
+          "rectangular",
+          "rounded"
+        ],
+        "defaultValue": "rectangular",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.Shape",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.Shape",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.Shape",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.Shape",
+            "transform": "pascal-case"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.shape"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.shape"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.shape"
+          }
+        ]
+      },
+      {
+        "id": "disabled",
+        "kind": "state",
+        "valueType": "boolean",
+        "defaultValue": false,
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.DisabledState",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.DisabledState",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.DisabledState",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.DisabledState",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.disabled"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.disabled"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.disabled"
+          }
+        ]
+      },
+      {
+        "id": "singleIcon",
+        "kind": "state",
+        "valueType": "boolean",
+        "defaultValue": false,
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.SingleIcon",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.SingleIcon",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.SingleIcon",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.SingleIcon",
+            "transform": "boolean-string"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "derived.singleIcon"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "derived.singleIcon"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "derived.singleIcon"
+          }
+        ]
+      },
+      {
+        "id": "labelVisible",
+        "kind": "visibility",
+        "valueType": "boolean",
+        "defaultValue": true,
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.Label#4:11"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.Label#4:11"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.Label#650:5"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.Label#650:11"
+          }
+        ]
+      },
+      {
+        "id": "label",
+        "kind": "content",
+        "valueType": "content",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.✎ Label#16:294"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.✎ Label#16:294"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.✎ Label#650:1"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.✎ Label#650:7"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.children"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.children"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.children"
+          }
+        ]
+      },
+      {
+        "id": "hintVisible",
+        "kind": "visibility",
+        "valueType": "boolean",
+        "defaultValue": false,
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.Hint#4:8"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.Hint#4:8"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.Hint#650:4"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.Hint#650:10"
+          }
+        ]
+      },
+      {
+        "id": "hint",
+        "kind": "content",
+        "valueType": "content",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.✎ Hint#16:149"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.✎ Hint#16:149"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.✎ Hint#650:3"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.✎ Hint#650:9"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.hint"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.hint"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.hint"
+          }
+        ]
+      },
+      {
+        "id": "leftAddon",
+        "kind": "slot",
+        "valueType": "node",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.LeftAddon#4:10"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.LeftAddon#4:10"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.LeftAddon#650:0"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.LeftAddon#650:6"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.leftAddons"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.leftAddons"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.leftAddons"
+          }
+        ]
+      },
+      {
+        "id": "rightAddon",
+        "kind": "slot",
+        "valueType": "node",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "component.properties.RightAddon#4:9"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "component.properties.RightAddon#4:9"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "component.properties.RightAddon#650:2"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "component.properties.RightAddon#650:8"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.rightAddons"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.rightAddons"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.rightAddons"
+          }
+        ]
+      },
+      {
+        "id": "colors",
+        "kind": "appearance",
+        "valueType": "enum",
+        "domain": [
+          "default",
+          "inverted"
+        ],
+        "defaultValue": "default",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "representation.surface",
+            "transform": "default"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "path": "representation.surface",
+            "transform": "inverted"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "representation.surface",
+            "transform": "default"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "path": "representation.surface",
+            "transform": "inverted"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.colors"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.colors"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.colors"
+          }
+        ]
+      },
+      {
+        "id": "loading",
+        "kind": "state",
+        "valueType": "boolean",
+        "defaultValue": false,
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "derived.loading"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "derived.loading"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.loading"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.loading"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.loading"
+          }
+        ]
+      },
+      {
+        "id": "block",
+        "kind": "layout",
+        "valueType": "boolean",
+        "defaultValue": false,
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "layout.sizingHorizontal",
+            "transform": "FILL=true,HUG=false"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "layout.sizingHorizontal",
+            "transform": "FILL=true,HUG=false"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.block"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.block"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.block"
+          }
+        ]
+      },
+      {
+        "id": "textResizing",
+        "kind": "layout",
+        "valueType": "enum",
+        "domain": [
+          "hug",
+          "fill"
+        ],
+        "defaultValue": "hug",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "derived.textResizing"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "derived.textResizing"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.textResizing"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.textResizing"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.textResizing"
+          }
+        ]
+      },
+      {
+        "id": "nowrap",
+        "kind": "layout",
+        "valueType": "boolean",
+        "defaultValue": false,
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "derived.nowrap"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "derived.nowrap"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.nowrap"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.nowrap"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.nowrap"
+          }
+        ]
+      },
+      {
+        "id": "allowBackdropBlur",
+        "kind": "appearance",
+        "valueType": "boolean",
+        "bindings": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "path": "effects.ControlBlur.visible"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "path": "effects.ControlBlur.visible"
+          },
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.allowBackdropBlur"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.allowBackdropBlur"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.allowBackdropBlur"
+          }
+        ]
+      },
+      {
+        "id": "href",
+        "kind": "code-only",
+        "valueType": "string",
+        "bindings": [
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.href"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.href"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.href"
+          }
+        ]
+      },
+      {
+        "id": "componentAs",
+        "kind": "code-only",
+        "valueType": "string",
+        "bindings": [
+          {
+            "representationId": "core.web.button.code.desktop",
+            "path": "props.Component"
+          },
+          {
+            "representationId": "core.web.button.code.mobile",
+            "path": "props.Component"
+          },
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.Component"
+          }
+        ]
+      },
+      {
+        "id": "breakpoint",
+        "kind": "code-only",
+        "valueType": "number",
+        "defaultValue": 1024,
+        "bindings": [
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.breakpoint"
+          }
+        ]
+      },
+      {
+        "id": "client",
+        "kind": "code-only",
+        "valueType": "enum",
+        "domain": [
+          "desktop",
+          "mobile"
+        ],
+        "bindings": [
+          {
+            "representationId": "core.web.button.code.adaptive",
+            "path": "props.client"
+          }
+        ]
+      }
+    ],
+    "documentation": [
+      {
+        "id": "ds-ai-hub.button.guidelines",
+        "kind": "guidelines",
+        "path": "sources/ds-ai-hub/core/web/components/button/guidelines.md",
+        "status": "verified",
+        "projection": "source"
+      },
+      {
+        "id": "ds-ai-hub.button.bridge",
+        "kind": "design-code-bridge",
+        "path": "sources/ds-ai-hub/core/web/components/button/bridge.md",
+        "status": "draft",
+        "projection": "source"
+      },
+      {
+        "id": "ds-ai-hub.button.figma-adapter",
+        "kind": "figma-adapter",
+        "path": "sources/ds-ai-hub/core/web/components/button/figma/adapter.md",
+        "status": "verified",
+        "projection": "source"
+      },
+      {
+        "id": "ds-ai-hub.button.figma-cookbook",
+        "kind": "figma-cookbook",
+        "path": "sources/ds-ai-hub/core/web/components/button/figma/cookbook.md",
+        "status": "verified",
+        "projection": "source"
+      },
+      {
+        "id": "ds-ai-hub.button.code-adapter",
+        "kind": "code-adapter",
+        "path": "sources/ds-ai-hub/core/web/components/button/code/adapter.md",
+        "status": "draft",
+        "projection": "source"
+      },
+      {
+        "id": "athena.button.rules",
+        "kind": "legacy-rules",
+        "path": "sources/design-system_ab-athena/rules.json",
+        "status": "verified",
+        "projection": "source"
+      },
+      {
+        "id": "athena.button.agent-context",
+        "kind": "legacy-agent-context",
+        "path": "sources/design-system_ab-athena/agent-context.json",
+        "status": "draft",
+        "projection": "source"
+      },
+      {
+        "id": "button.generated-docs",
+        "kind": "generated-projection",
+        "path": "projections/",
+        "status": "draft",
+        "projection": "generated"
+      }
+    ],
+    "examples": [
+      {
+        "id": "button.example.working-default",
+        "kind": "generation",
+        "intent": "Обычное дополнительное действие",
+        "input": {
+          "platform": "desktop"
+        },
+        "expected": {
+          "representationId": "core.web.button.figma.desktop",
+          "semanticProps": {
+            "view": "secondary",
+            "size": 56,
+            "shape": "rectangular",
+            "labelVisible": true,
+            "hintVisible": false,
+            "singleIcon": false
+          }
+        },
+        "sourceRefs": [
+          "ds-ai-hub.button.figma-cookbook"
+        ],
+        "status": "reviewed"
+      },
+      {
+        "id": "button.example.primary-cta",
+        "kind": "mapping",
+        "intent": "Главное действие desktop",
+        "input": {
+          "semanticProps": {
+            "view": "primary",
+            "size": 56,
+            "label": "Оформить"
+          }
+        },
+        "expected": {
+          "figma": {
+            "View": "Primary",
+            "Size": "56"
+          },
+          "code": {
+            "component": "ButtonDesktop",
+            "props": {
+              "view": "primary",
+              "size": 56
+            }
+          }
+        },
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge"
+        ],
+        "status": "reviewed"
+      },
+      {
+        "id": "button.example.text-shape-invalid",
+        "kind": "validation",
+        "intent": "Запрещённая комбинация Text + Rounded",
+        "input": {
+          "semanticProps": {
+            "view": "text",
+            "shape": "rounded"
+          }
+        },
+        "expected": {
+          "verdict": "violation"
+        },
+        "ruleIds": [
+          "component:web-core.button.view-text-requires-rectangular-shape"
+        ],
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge"
+        ],
+        "status": "reviewed"
+      },
+      {
+        "id": "button.example.hint-size-invalid",
+        "kind": "validation",
+        "intent": "Hint на компактной кнопке",
+        "input": {
+          "semanticProps": {
+            "size": 40,
+            "hintVisible": true
+          }
+        },
+        "expected": {
+          "verdict": "violation"
+        },
+        "ruleIds": [
+          "component:web-core.button.hint-requires-large-size"
+        ],
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge"
+        ],
+        "status": "reviewed"
+      },
+      {
+        "id": "button.example.loading",
+        "kind": "generation",
+        "intent": "Loading-состояние",
+        "input": {
+          "semanticProps": {
+            "view": "accent",
+            "loading": true
+          }
+        },
+        "expected": {
+          "labelVisible": false,
+          "leftAddonVisible": true,
+          "addonType": "Spinner",
+          "spinner": {
+            "inverted": true,
+            "static": true
+          }
+        },
+        "ruleIds": [
+          "component:web-core.button.loading-uses-addon-spinner",
+          "component:web-core.button.loading-spinner-style-follows-view"
+        ],
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge"
+        ],
+        "status": "reviewed"
+      },
+      {
+        "id": "button.example.single-icon",
+        "kind": "generation",
+        "intent": "Кнопка только с иконкой",
+        "input": {
+          "semanticProps": {
+            "singleIcon": true
+          }
+        },
+        "expected": {
+          "labelVisible": false,
+          "hintVisible": false,
+          "addonCount": 1,
+          "preferredAddon": "leftAddon"
+        },
+        "ruleIds": [
+          "component:web-core.button.single-icon-content-shape"
+        ],
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge"
+        ],
+        "status": "reviewed"
+      }
+    ],
+    "decisions": [
+      {
+        "id": "decision:core.web.button.working-default",
+        "status": "accepted",
+        "summary": "Рабочий default генерации не равен техническому default Figma.",
+        "rationale": "Для новых макетов явно применяется Secondary/56 без Hint и Addon; технический default Accent/72 нужен только как библиотечный факт.",
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge",
+          "ds-ai-hub.button.figma-cookbook"
+        ]
+      },
+      {
+        "id": "decision:core.web.button.one-semantic-component",
+        "status": "accepted",
+        "summary": "Четыре Figma component set и три React export являются представлениями одного componentId.",
+        "rationale": "Default/inverted и desktop/mobile не создают параллельные семантические компоненты.",
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge"
+        ]
+      },
+      {
+        "id": "decision:core.web.button.pattern-ownership",
+        "status": "accepted",
+        "summary": "Правила группировки, количества и порядка кнопок принадлежат PatternContract.",
+        "rationale": "ComponentContract публикует только локальную точку делегации и не присваивает себе page/pattern context.",
+        "sourceRefs": [
+          "ds-ai-hub.button.guidelines"
+        ]
+      },
+      {
+        "id": "decision:core.web.button.alfa-business-variant-policy",
+        "status": "needs-confirmation",
+        "summary": "Ограничения Athena для desktop variants и Hint временно ограничены продуктом alfa-business.",
+        "rationale": "Они противоречат универсальному core API и ds-ai-hub; до подтверждения владельцем не должны трактоваться как универсальные правила Button.",
+        "sourceRefs": [
+          "athena.button.rules",
+          "ds-ai-hub.button.bridge"
+        ]
+      },
+      {
+        "id": "decision:core.web.button.desktop-hint-canonical-rule",
+        "status": "accepted",
+        "summary": "Запрет Hint для desktop Альфа-Бизнес хранится только в component:web-core.button.desktop-hint-restricted; тестовый ID component:core.web.button.root.component-properties-hint-4-8 сохранён как deprecated.",
+        "rationale": "Пользователь подтвердил запрет Hint в Альфа-Бизнес и согласовал консолидацию. Product ID ab соответствует Editor. Другие неподтверждённые ограничения View/Size/Shape/mobile не становятся подтверждёнными автоматически.",
+        "sourceRefs": [
+          "athena.button.rules",
+          "ds-ai-hub.button.bridge"
+        ]
+      }
+    ],
+    "generation": {
+      "profiles": [
+        {
+          "id": "button.profile.desktop-default",
+          "intent": "default-action",
+          "platform": "desktop",
+          "representationId": "core.web.button.figma.desktop",
+          "properties": {
+            "view": "secondary",
+            "size": 56,
+            "shape": "rectangular",
+            "disabled": false,
+            "singleIcon": false,
+            "labelVisible": true,
+            "hintVisible": false
+          },
+          "rationale": "Безопасный рабочий default для макета."
+        },
+        {
+          "id": "button.profile.mobile-default",
+          "intent": "default-action",
+          "platform": "mobile-web",
+          "representationId": "core.web.button.figma.mobile",
+          "properties": {
+            "view": "secondary",
+            "size": 56,
+            "shape": "rectangular",
+            "disabled": false,
+            "singleIcon": false,
+            "labelVisible": true,
+            "hintVisible": false
+          }
+        },
+        {
+          "id": "button.profile.desktop-inverted",
+          "intent": "action-on-inverted-surface",
+          "platform": "desktop",
+          "representationId": "core.web.button.figma.inverted-desktop",
+          "properties": {
+            "colors": "inverted",
+            "view": "accent",
+            "size": 56
+          }
+        },
+        {
+          "id": "button.profile.mobile-inverted",
+          "intent": "action-on-inverted-surface",
+          "platform": "mobile-web",
+          "representationId": "core.web.button.figma.inverted-mobile",
+          "properties": {
+            "colors": "inverted",
+            "view": "accent",
+            "size": 56
+          }
+        },
+        {
+          "id": "button.profile.code-adaptive",
+          "intent": "explicit-adaptive-implementation",
+          "platform": "adaptive-web",
+          "representationId": "core.web.button.code.adaptive",
+          "properties": {
+            "view": "secondary",
+            "size": 56
+          },
+          "rationale": "Использовать только по явному запросу на адаптивную обёртку."
+        }
+      ],
+      "instructions": [
+        "Сначала выбери platform и surface, затем representationId.",
+        "Не используй технический defaultVariant Figma как рабочий default генерации.",
+        "Скрывай Label и Hint boolean-свойствами, не очищай их text properties.",
+        "Для новых addon используй glyph-26 внутри обёртки Addon без detach.",
+        "После генерации проверь все predicate-правила; context-only правила передай на ручную или агентскую проверку."
+      ]
+    },
+    "source": {
+      "kind": "manual-source",
+      "importedFiles": [
+        "Athena Button package",
+        "ds-ai-hub/core/web/components/button",
+        "ComponentContract Editor v1 export"
+      ],
+      "sourceHash": "809dae12bfd8e745f4c9466948cf78279b9870e7e6678b9e280d67bb20d078a8",
+      "importedAt": "2026-09-06T00:00:00.000Z"
+    },
+    "targets": [
+      {
+        "id": "target.root",
+        "semanticRole": "root",
+        "label": "Button root",
+        "componentFamily": "Button",
+        "lineage": [
+          "core.web.button"
+        ],
+        "nameHint": "[D] Button",
+        "pathHint": "[D] Button",
+        "resolution": "resolved",
+        "representationHints": [
+          {
+            "representationId": "core.web.button.figma.desktop",
+            "nameHint": "[D] Button",
+            "pathHint": "[D] Button"
+          },
+          {
+            "representationId": "core.web.button.figma.mobile",
+            "nameHint": "[M] Button",
+            "pathHint": "[M] Button"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-desktop",
+            "nameHint": "[D] Button_Inverted",
+            "pathHint": "[D] Button_Inverted"
+          },
+          {
+            "representationId": "core.web.button.figma.inverted-mobile",
+            "nameHint": "[M] Button_Inverted",
+            "pathHint": "[M] Button_Inverted"
+          }
+        ],
+        "nodeIdHint": "preview:0"
+      },
+      {
+        "id": "target.text",
+        "semanticRole": "text",
+        "label": "Text container",
+        "componentFamily": "Button",
+        "lineage": [
+          "core.web.button",
+          "root"
+        ],
+        "nameHint": "Text",
+        "pathHint": "[D] Button / Text",
+        "resolution": "resolved",
+        "nodeIdHint": "preview:7"
+      },
+      {
+        "id": "target.label",
+        "semanticRole": "label",
+        "label": "Label",
+        "componentFamily": "Button",
+        "lineage": [
+          "core.web.button",
+          "root",
+          "text"
+        ],
+        "nameHint": "Label",
+        "pathHint": "[D] Button / Text / Label",
+        "resolution": "resolved",
+        "nodeIdHint": "preview:8"
+      },
+      {
+        "id": "target.hint",
+        "semanticRole": "hint",
+        "label": "Hint",
+        "componentFamily": "Button",
+        "lineage": [
+          "core.web.button",
+          "root",
+          "text"
+        ],
+        "nameHint": "Hint",
+        "pathHint": "[D] Button / Text / Hint",
+        "resolution": "resolved",
+        "nodeIdHint": "preview:9"
+      },
+      {
+        "id": "target.left-addon",
+        "semanticRole": "left-addon",
+        "label": "LeftAddon",
+        "componentFamily": "Addon",
+        "lineage": [
+          "core.web.button",
+          "root"
+        ],
+        "nameHint": "LeftAddon",
+        "pathHint": "[D] Button / LeftAddon",
+        "resolution": "resolved",
+        "nodeIdHint": "preview:1"
+      },
+      {
+        "id": "target.right-addon",
+        "semanticRole": "right-addon",
+        "label": "RightAddon",
+        "componentFamily": "Addon",
+        "lineage": [
+          "core.web.button",
+          "root"
+        ],
+        "nameHint": "RightAddon",
+        "pathHint": "[D] Button / RightAddon",
+        "resolution": "resolved",
+        "nodeIdHint": "preview:10"
+      },
+      {
+        "id": "target.spinner",
+        "semanticRole": "spinner",
+        "label": "Loading spinner",
+        "componentFamily": "Spinner",
+        "lineage": [
+          "core.web.button",
+          "root",
+          "addon"
+        ],
+        "nameHint": "Spinner",
+        "resolution": "missing"
+      }
+    ],
+    "controlPorts": [
+      {
+        "id": "port.button-group-policy",
+        "label": "Button group pattern policy",
+        "targetId": "target.root",
+        "capability": "pattern.button-group",
+        "required": false
+      },
+      {
+        "id": "port.editorial-label-policy",
+        "label": "Button label editorial policy",
+        "targetId": "target.label",
+        "capability": "content.editorial",
+        "required": false
+      }
+    ],
+    "rules": [
+      {
+        "id": "component:web-core.button.single-icon-content-shape",
+        "targetId": "target.root",
+        "targetScope": "self",
+        "capability": "composition.single-icon",
+        "permission": "constrained",
+        "controlPaths": [
+          {
+            "kind": "host-property",
+            "property": "SingleIcon",
+            "required": true,
+            "exclusive": true
+          },
+          {
+            "kind": "slot-api",
+            "target": "leftAddon|rightAddon",
+            "required": true,
+            "exclusive": false
+          }
+        ],
+        "constraints": [
+          {
+            "type": "quantity",
+            "targetRoles": [
+              "left-addon",
+              "right-addon"
+            ],
+            "visibleOnly": true,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "quantity",
+            "targetRoles": [
+              "label",
+              "hint"
+            ],
+            "visibleOnly": true,
+            "min": 0,
+            "max": 0
+          }
+        ],
+        "applicability": {
+          "variants": "all",
+          "modes": "all",
+          "platforms": [
+            "desktop",
+            "mobile-web"
+          ],
+          "conditionSubject": "component-root",
+          "context": {
+            "semanticApi.singleIcon": true
+          }
+        },
+        "severity": "error",
+        "rationale": "SingleIcon содержит ровно один addon без Label и Hint; левый слот предпочтителен по умолчанию.",
+        "message": "SingleIcon Button имеет неверный состав.",
+        "status": "draft",
+        "owner": "design-system-authors",
+        "sourceRefs": [
+          "ds-ai-hub.button.bridge"
+        ],
+        "execution": {
+          "route": "predicate"
+        }
+      }
+    ],
+    "metadata": {
+      "owners": {
+        "generated": "athena-cli",
+        "manual": "design-system-authors",
+        "runtime": "apollo-runtime"
+      },
+      "revision": 7,
+      "createdAt": "2026-09-06T00:00:00.000Z",
+      "updatedAt": "2026-09-25T00:15:56.556Z"
+    }
+  }
+}

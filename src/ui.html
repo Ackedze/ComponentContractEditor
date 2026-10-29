@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ComponentContract Editor</title>
+    <style>/*__COMPONENT_CONTRACT_EDITOR_CSS__*/</style>
+  </head>
+  <body data-workspace-mode="authoring">
+    <a class="skip-link" href="#workspace">К рабочей области</a>
+    <header class="app-header">
+      <div class="workspace-mode-switch" role="tablist" aria-label="Режим ComponentContract Editor">
+        <button id="authoringModeButton" type="button" role="tab" aria-selected="true">Каталог</button>
+        <button id="validationModeButton" type="button" role="tab" aria-selected="false">Проверка</button>
+      </div>
+      <div class="header-status" aria-live="polite">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Ждёт импорт</span>
+          <span class="build-version">v0.2.108</span>
+      </div>
+      <div class="header-actions">
+        <input id="fileInput" type="file" accept=".json,.zip,application/json,application/zip" multiple hidden />
+        <button class="button button-secondary authoring-only" id="contractSettingsButton" type="button" disabled>Паспорт</button>
+        <button class="button button-secondary" id="importButton" type="button">Загрузить пакет</button>
+        <button class="button button-primary authoring-only" id="exportButton" type="button" disabled>Экспорт</button>
+      </div>
+    </header>
+
+    <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="false"></div>
+
+    <section class="scenario-bar authoring-only" aria-label="Сценарий компонента">
+      <div class="scenario-title">
+        <span class="eyebrow" id="componentMeta">Manual authoring · Apollo contract v2</span>
+        <strong id="componentName">Компонент не выбран</strong>
+      </div>
+      <div class="scenario-controls" id="scenarioControls"></div>
+      <div class="scenario-summary">
+        <span class="metric"><strong id="ruleCount">0</strong> правил</span>
+        <span class="metric"><strong id="targetCount">0</strong> целей</span>
+        <span class="metric metric-warning" id="warningMetric" hidden><strong id="warningCount">0</strong> замечаний</span>
+      </div>
+    </section>
+
+    <main class="workspace" id="workspace">
+      <aside class="panel anatomy-panel" aria-label="Анатомия компонента">
+        <div class="panel-heading">
+          <div>
+            <h2>Анатомия</h2>
+            <p class="panel-description">Слои и semantic targets</p>
+          </div>
+          <span class="count-badge" id="anatomyCount">0</span>
+        </div>
+        <label class="search-field">
+          <span class="sr-only">Поиск по анатомии</span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"></circle><path d="m10.5 10.5 3 3"></path></svg>
+          <input id="anatomySearch" type="search" placeholder="Найти слой или слот" />
+        </label>
+        <div class="tree-legend"><span>Слой</span><span>Target · Test</span></div>
+        <div class="anatomy-tree" id="anatomyTree" role="tree"></div>
+        <div class="empty-rail" id="anatomyEmpty">Импортируйте Athena package, contract v2 или возьмите выделенный компонент.</div>
+      </aside>
+
+      <section class="preview-panel" aria-label="Предпросмотр компонента">
+        <div class="preview-viewport" id="previewViewport">
+          <div class="zoom-control" role="group" aria-label="Масштаб">
+            <button type="button" id="zoomOut" aria-label="Уменьшить">−</button>
+            <output id="zoomValue">100%</output>
+            <button type="button" id="zoomIn" aria-label="Увеличить">+</button>
+          </div>
+          <div class="preview-grid" aria-hidden="true"></div>
+          <div class="preview-empty" id="previewEmpty">
+            <div class="empty-glyph" aria-hidden="true"><span></span><span></span><span></span></div>
+            <h3>Подключите evidence</h3>
+            <p id="previewEmptyDescription">Плагин временно импортирует экземпляр по componentKey, экспортирует изображение и удаляет служебную страницу.</p>
+            <button class="button button-primary" id="emptyImportButton" type="button">Загрузить пакет</button>
+          </div>
+          <div class="preview-loading" id="previewLoading" hidden>
+            <span class="spinner"></span>
+            <strong>Собираем preview и snapshot</strong>
+          </div>
+          <figure class="component-stage" id="componentStage" hidden>
+            <img id="previewImage" alt="Предпросмотр выбранного компонента" />
+            <figcaption id="previewDimensions"></figcaption>
+          </figure>
+        </div>
+        <section class="properties-dock authoring-only" aria-label="Фактические свойства">
+          <div class="dock-heading">
+            <div><h3>Фактические свойства</h3><p class="panel-description">Выбранная область</p></div>
+            <span class="hint">Нажмите свойство, чтобы выбрать capability</span>
+          </div>
+          <div class="property-list" id="propertyList"></div>
+        </section>
+      </section>
+
+      <aside class="panel authoring-panel authoring-only" id="authoringPanel" aria-label="Редактор правил">
+        <div class="panel-heading">
+          <button class="back-button" id="backToRulesButton" type="button" hidden aria-label="Вернуться к списку правил">←</button>
+          <div class="authoring-heading-copy">
+            <h2 id="authoringTitle">Правила компонента</h2>
+            <p class="panel-description" id="authoringSubtitle">Ограничения, разрешения и условия</p>
+          </div>
+          <button class="icon-button" id="newRuleButton" type="button" aria-label="Создать правило">+</button>
+        </div>
+
+        <div class="authoring-view" id="authoringListView">
+        <div class="authoring-utilities" aria-label="Действия с semantic targets">
+          <button class="button button-secondary remap-entry" id="addSemanticTargetButton" type="button" title="Добавить цель выбранного слоя" disabled>Добавить цель</button>
+          <button class="button button-secondary remap-entry" id="remapTargetsButton" type="button" title="Перепривязать semantic target" disabled>Перепривязать</button>
+        </div>
+        <details class="quick-policy">
+          <summary>
+            <span><strong>Быстрая настройка</strong><small id="quickPolicySummary">Выберите компонент</small></span>
+            <span class="summary-chevron" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="quick-policy-body">
+            <article class="policy-preset">
+              <div>
+                <strong>Защитить внутреннее устройство</strong>
+                <p>Запрещает прямое изменение автолейаута и внешнего вида компонента вместе со всеми потомками.</p>
+              </div>
+              <button class="button button-secondary" id="protectInternalsButton" type="button" disabled>Применить</button>
+            </article>
+          </div>
+        </details>
+
+        <section class="rule-library" aria-labelledby="ruleLibraryTitle">
+          <div class="rule-library-heading">
+            <div><strong id="ruleLibraryTitle">Правила контракта</strong><span>Выберите карточку для детальной настройки</span></div>
+            <span class="preview-pinned" id="previewPinnedState">Preview не получен</span>
+          </div>
+          <div class="rule-search">
+            <label class="search-field">
+              <span class="sr-only">Поиск правил по Rule ID</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
+              <input id="ruleSearch" type="search" placeholder="Найти по Rule ID или его части" autocomplete="off" spellcheck="false" aria-controls="ruleCards" disabled />
+            </label>
+            <button class="icon-button" id="clearRuleSearchButton" type="button" aria-label="Очистить поиск правил" title="Очистить поиск" hidden>×</button>
+          </div>
+          <p class="rule-search-results" id="ruleSearchResults" role="status" aria-live="polite" hidden></p>
+          <div class="rule-card-list" id="ruleCards"></div>
+        </section>
+        </div>
+
+        <div class="authoring-view" id="authoringEditorView" hidden>
+        <label class="field sr-only">
+          <span>Правило</span>
+          <select id="ruleSelect"><option value="">Новое правило</option></select>
+        </label>
+
+        <div class="target-card">
+          <div>
+            <strong id="targetLabel">Сначала выберите слой</strong>
+            <span class="target-meta"><span id="targetType">Тип не определён</span><span aria-hidden="true">·</span><span id="targetRole">semantic target</span></span>
+          </div>
+          <span class="resolution-pill" id="targetResolution">unknown</span>
+        </div>
+        <button class="button button-secondary remap-entry" id="remapRuleTargetButton" type="button" disabled>Перепривязать цель правила…</button>
+
+        <label class="field"><span>Rule ID</span><input id="ruleIdInput" placeholder="component:web-core.button.rule-name" /></label>
+
+        <div class="capability-controls">
+          <div class="property-source-tabs" role="tablist" aria-label="Источник свойства">
+            <button id="layerPropertyTab" type="button" role="tab" aria-selected="true" aria-controls="layerPropertyPanel">Свойство слоя</button>
+            <button id="componentPropertyTab" type="button" role="tab" aria-selected="false" aria-controls="componentPropertyPanel">Component Property</button>
+          </div>
+          <div class="property-source-panel" id="layerPropertyPanel" role="tabpanel" aria-labelledby="layerPropertyTab">
+            <label class="field">
+              <span>Группа</span>
+              <select id="capabilitySetSelect">
+                <option value="">Одно свойство</option>
+                <option value="fill@1">Заливка</option>
+                <option value="stroke@1">Обводка</option>
+                <option value="auto-layout@1">Автолейаут</option>
+                <option value="radius@1">Скругление</option>
+                <option value="effects@1">Эффекты</option>
+                <option value="visual-style@1">Внешний вид</option>
+              </select>
+            </label>
+            <div class="field" id="layerPropertyField">
+              <label for="capabilityInput">Свойство</label>
+              <div class="property-picker" id="propertyPicker">
+                <input id="capabilityInput" autocomplete="off" placeholder="Найти или ввести свойство" aria-autocomplete="list" aria-controls="capabilityOptions" aria-expanded="false" />
+                <div class="property-picker-menu" id="capabilityOptions" role="listbox" hidden></div>
+              </div>
+              <span class="capability-set-list" id="capabilitySetList" aria-live="polite" tabindex="-1" hidden></span>
+            </div>
+          </div>
+          <div class="property-source-panel" id="componentPropertyPanel" role="tabpanel" aria-labelledby="componentPropertyTab" hidden>
+            <label class="field" id="componentPropertyField">
+              <span>Свойство</span>
+              <select id="componentPropertyInput">
+                <option value="">Выберите Component Property</option>
+              </select>
+              <small class="component-property-hint" id="componentPropertyHint"></small>
+            </label>
+          </div>
+          <label class="field">
+            <span>Область действия</span>
+            <select id="targetScope">
+              <option value="self">Только выбранный слой</option>
+              <option value="self-and-descendants">Слой и все его потомки</option>
+              <option value="descendants">Только вложенные слои (без выбранного)</option>
+            </select>
+          </label>
+          <details class="target-advanced-settings">
+            <summary><span>Дополнительные настройки цели</span><span>Граница и видимость</span></summary>
+            <div class="target-advanced-body">
+              <label class="field">
+                <span>Граница вложенного контракта</span>
+                <select id="boundaryPolicy">
+                  <option value="">Без отдельной границы (прежнее поведение)</option>
+                  <option value="component-owned@1">Только собственная область компонента</option>
+                </select>
+                <small>Для рекурсивных baseline-правил: исключает внутренности подтверждённой зависимости и явно открытого native SLOT. Сам слот остаётся в области компонента. Без доказанной границы — «Не выполнено».</small>
+              </label>
+              <label class="field">
+                <span>Применимость стилевого правила</span>
+                <select id="targetApplicability">
+                  <option value="">Без условия видимости (прежнее поведение)</option>
+                  <option value="visible-target@1">Только при видимой цели</option>
+                </select>
+                <small>Доказанно скрытая цель — «Не применяется». Не разрешает скрывать обязательные элементы: presence/visibility проверяются отдельно.</small>
+              </label>
+            </div>
+          </details>
+        </div>
+
+        <fieldset class="field permission-field">
+          <legend>Permission</legend>
+          <div class="segmented" id="permissionControl">
+            <label><input type="radio" name="permission" value="forbidden" /><span>Запрещено</span></label>
+            <label><input type="radio" name="permission" value="allowed" /><span>Разрешено</span></label>
+            <label><input type="radio" name="permission" value="constrained" checked /><span>С условиями</span></label>
+          </div>
+        </fieldset>
+
+        <div class="subsection" id="controlPathSection">
+          <div class="subsection-heading"><span>Control path</span><span class="axis-label">Как управлять</span></div>
+          <div class="form-grid two-columns">
+            <label class="field">
+              <span>Путь</span>
+              <select id="controlPathKind">
+                <option value="direct">Прямое изменение</option>
+                <option value="host-property">Свойство компонента</option>
+                <option value="nested-property">Свойство вложенного компонента</option>
+                <option value="slot-api">Слот</option>
+                <option value="variable-binding">Привязка переменной</option>
+                <option value="inherited-port">Унаследованный порт</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Property / port</span>
+              <input id="controlPathValue" placeholder="Appearance; для слота пусто = выбранная цель" />
+            </label>
+            <label id="slotAnchorField" class="field" hidden><span>Якорь слота · SLOT или BOOLEAN · точный Figma property ID</span><input id="slotAnchorProperty" placeholder="Body#135096:3 или Addon#100902:0" /></label>
+            <label id="slotOwnerField" class="field" hidden><span>Владелец свойства слота · target ID</span><input id="slotOwnerTarget" placeholder="Пусто = корень компонента" /></label>
+            <label id="slotContentField" class="field" hidden><span>Содержимое слота</span><select id="slotContentOwnership"><option value="">В рамках контракта</option><option value="external">Внешнее: проверять только границу слота</option></select></label>
+          </div>
+          <p class="field-help" id="controlPathHint"></p>
+          <label class="check-field"><input id="exclusivePath" type="checkbox" checked /><span>Другие пути запрещены</span></label>
+          <label class="field"><span>Дополнительные control paths · JSON</span><textarea id="additionalControlPaths" rows="3" spellcheck="false">[]</textarea></label>
+        </div>
+
+        <details class="subsection rule-section constraint-section" id="constraintSection" data-rule-section="constraintSection" open>
+          <summary class="subsection-heading"><span>Typed constraint</span><span class="rule-section-summary" id="constraintSectionSummary"></span></summary>
+          <div class="rule-section-body">
+          <label class="field"><span>Ограничение внутри правила</span><select id="constraintEntrySelect"><option value="0">1 · Ограничение</option></select></label>
+          <label class="field">
+            <span>Тип</span>
+            <select id="constraintType">
+              <option value="propertyDomain">Допустимые значения</option>
+              <option value="propertyExclusion">Запрещённые значения</option>
+              <option value="presence">Наличие / отсутствие</option>
+              <option value="propertyForbidden">Совпадает с baseline</option>
+              <option value="quantity">Количество</option>
+              <option value="memberCollection">Состав и условия коллекции</option>
+              <option value="positionOrder">Порядок</option>
+              <option value="relationship">Связь элементов</option>
+              <option value="dependencyDomain">Вложенный компонент / каталог иконки</option>
+              <option value="tokenBinding">Token binding</option>
+              <option value="styleBinding">Обязательный библиотечный Text Style</option>
+              <option value="bindingConsistency">Общие привязки текстовых частей</option>
+              <option value="layoutConstraint">Layout constraint</option>
+              <option value="configurationDomain">Согласованные конфигурации</option>
+              <option value="configurationMapping">Соответствие спецификации</option>
+              <option value="instanceReplacementDomain">Допустимая замена экземпляра · из пакета</option>
+              <option value="transitionInvariant">Размер до / после перехода</option>
+            </select>
+          </label>
+          <div id="constraintFields"></div>
+          <label class="field"><span>Fact выбранного ограничения (необязательно)</span><input id="constraintFact" placeholder="semanticApi.labelVisible" /></label>
+          <label class="field"><span>Остальные ограничения · JSON</span><textarea id="additionalConstraints" rows="4" spellcheck="false">[]</textarea></label>
+          <p class="field-help">Все ограничения обязательны (AND). Выбор сверху открывает каждое в форме; порядок и остальные ограничения сохраняются.</p>
+        </div>
+        </details>
+
+        <details class="subsection rule-section" id="applicabilitySection" data-rule-section="applicabilitySection">
+          <summary class="subsection-heading"><span>Applicability</span><span class="rule-section-summary" id="applicabilitySectionSummary"></span></summary>
+          <div class="rule-section-body">
+          <label class="field"><span>Режим проверки правила</span><select id="ruleValidationMode"><option value="">В обоих режимах · требование компонента</option><option value="specification">Только по спецификации · внешние ожидания</option></select></label>
+          <p class="field-help">Правила компонента проверяются всегда. Сопоставление с заданной спецификацией — дополнительно; оно не задаёт требования к выбору компонента в продукте или паттерне.</p>
+          <label class="field"><span>Толщина обводки · когда сравнивать</span><select id="strokeApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="stroke-present-either@1">Если обводка есть в экземпляре или эталоне</option></select></label>
+          <label class="field"><span>Gap · когда сравнивать</span><select id="gapApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="flow-gap-either@1">Если в экземпляре или эталоне ≥ 2 элемента в auto layout</option></select></label>
+          <label class="field"><span>Padding top · когда сравнивать</span><select id="paddingTopApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="auto-layout-padding-either@1">Если auto layout есть в экземпляре или эталоне</option></select></label>
+          <label class="field"><span>Padding right · когда сравнивать</span><select id="paddingRightApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="auto-layout-padding-either@1">Если auto layout есть в экземпляре или эталоне</option></select></label>
+          <label class="field"><span>Padding bottom · когда сравнивать</span><select id="paddingBottomApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="auto-layout-padding-either@1">Если auto layout есть в экземпляре или эталоне</option></select></label>
+          <label class="field"><span>Padding left · когда сравнивать</span><select id="paddingLeftApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="auto-layout-padding-either@1">Если auto layout есть в экземпляре или эталоне</option></select></label>
+          <label class="field"><span>Выравнивание по основной оси · когда сравнивать</span><select id="primaryAlignmentApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="flow-alignment-either@1">Если HORIZONTAL/VERTICAL есть в экземпляре или эталоне</option></select></label>
+          <label class="field"><span>Выравнивание по поперечной оси · когда сравнивать</span><select id="counterAlignmentApplicability"><option value="">Всегда (без дополнительного условия)</option><option value="flow-alignment-either@1">Если HORIZONTAL/VERTICAL есть в экземпляре или эталоне</option></select></label>
+          <p class="field-help">Условия действуют только на выбранные сравнения с baseline. Скрытые и absolute-дети исключаются только из подсчёта gap. Padding применим к HORIZONTAL/VERTICAL/GRID; выравнивание по осям — к HORIZONTAL/VERTICAL. Если свойство активно хотя бы в одном состоянии, сравнение выполняется. Layout mode, sizing и размеры проверяются отдельно. Неизвестные данные оставляют проверку неполной.</p>
+          <label class="field"><span>Источник variant/context условий</span><select id="conditionSubject"><option value="target">Проверяемый слой (legacy)</option><option value="component-root">Корень компонента</option></select></label>
+          <label class="field"><span>Применять при активной зависимости</span><select id="activeDependency"><option value="">Без условия зависимости</option></select></label>
+          <p class="field-help">Активация — видимый владелец выбрал вариант зависимости. Скрытый или повреждённый дочерний компонент не выключает правило.</p>
+          <label class="field"><span>Semantic API условия · JSON</span><textarea id="contextConditions" rows="3" spellcheck="false">{}</textarea></label>
+          <label class="field"><span>Semantic API · одно из значений (JSON)</span><textarea id="contextDomains" rows="3" spellcheck="false">{}</textarea></label>
+          <p class="field-help">Например: {"semanticApi.singleIcon": true}. Требования к результату задавайте в ограничениях, а не здесь.</p>
+          <div class="scope-field">
+            <details class="scope-dropdown scope-dimension-dropdown" id="variantScopeDropdown">
+              <summary><strong>Variants</strong><span id="variantScopeSummary">Все варианты</span></summary>
+              <div class="scope-dropdown-body">
+                <p class="scope-dimension-help">AND между свойствами, OR между выбранными значениями</p>
+                <div class="scope-options" id="variantScopeOptions"></div>
+              </div>
+            </details>
+          </div>
+          <div class="scope-field">
+            <details class="scope-dropdown scope-dimension-dropdown" id="modeScopeDropdown">
+              <summary><strong>Modes</strong><span id="modeScopeSummary">Все modes</span></summary>
+              <div class="scope-dropdown-body">
+                <p class="scope-dimension-help">Modes коллекций Figma Variables, а не произвольные light/dark значения</p>
+                <div class="scope-dropdown-stack" id="modeScopeOptions"></div>
+              </div>
+            </details>
+          </div>
+          <div class="scope-field">
+            <div class="scope-field-heading"><strong>Products</strong><span>Продукт, в котором действует правило</span></div>
+            <details class="scope-dropdown" id="productScopeDropdown">
+              <summary>Все продукты</summary>
+              <div class="scope-dropdown-body">
+                <div class="scope-options" id="productScopeOptions"></div>
+                <label class="field scope-custom-field"><span>Legacy / другие product ID</span><input id="productScopeCustom" placeholder="через запятую" /></label>
+              </div>
+            </details>
+          </div>
+          <div class="scope-field">
+            <details class="scope-dropdown scope-dimension-dropdown" id="channelScopeDropdown">
+              <summary><strong>Channels</strong><span id="channelScopeSummary">Все каналы</span></summary>
+              <div class="scope-dropdown-body">
+                <p class="scope-dimension-help">Каналы продукта из ds-ai-hub</p>
+                <div class="scope-options" id="channelScopeOptions"></div>
+                <label class="field scope-custom-field"><span>Legacy / другие channel ID</span><input id="channelScopeCustom" placeholder="через запятую" /></label>
+              </div>
+            </details>
+          </div>
+          <label class="field"><span>Scope status</span><select id="scopeStatus"><option value="confirmed">Confirmed</option><option value="needs-confirmation">Needs confirmation</option></select></label>
+        </div>
+        </details>
+
+        <details class="subsection rule-section" id="executionSection" data-rule-section="executionSection">
+          <summary class="subsection-heading"><span>Execution</span><span class="rule-section-summary" id="executionSectionSummary"></span></summary>
+          <div class="rule-section-body">
+          <label class="field"><span>Route</span><select id="executionRoute"><option value="auto">Auto</option><option value="predicate">Predicate Engine</option><option value="policy-only">Policy only</option><option value="delegated">Delegated contract</option><option value="context-only">Context only</option></select></label>
+          <label class="field"><span>External Rule IDs</span><input id="externalRuleIds" placeholder="rule:pattern.one, rule:policy.two" /></label>
+          <label class="field"><span>Missing facts</span><input id="missingFacts" placeholder="interaction.loadingState, geometry.preLoadingWidth" /></label>
+          <label class="field"><span>Source refs</span><input id="sourceRefs" placeholder="docs.core.web.button.bridge#loading" /></label>
+        </div>
+        </details>
+
+        <details class="subsection rule-section" id="ownershipSection" data-rule-section="ownershipSection">
+          <summary class="subsection-heading"><span>Нормативный владелец</span><span class="rule-section-summary" id="ownershipSectionSummary"></span></summary>
+          <div class="rule-section-body">
+          <label class="field"><span>Тип требования</span><select id="ruleOwnershipKind"><option value="">Не классифицировано</option><option value="component">Сам компонент</option><option value="product-policy">Продуктовая политика</option><option value="pattern">Паттерн применения</option><option value="editorial-policy">Редакционная политика</option></select></label>
+          <label class="field"><span>ID владельца требования</span><input id="ruleOwnershipId" placeholder="ID компонента, продукта, паттерна или политики" /></label>
+          <p class="scope-dimension-help">Владелец требования не меняет Product, условия или маршрут исполнения. Для компонента укажите componentId этого пакета. При первой классификации включается явная модель ownership; остальные правила без владельца будут показаны отдельно, а не автоматически отнесены к компоненту.</p>
+        </div>
+        </details>
+        <div class="form-grid three-columns">
+          <label class="field"><span>Severity</span><select id="severity"><option value="error">Error</option><option value="warning">Warning</option><option value="info">Info</option></select></label>
+          <label class="field"><span>Status</span><select id="ruleStatus"><option value="draft">Draft</option><option value="reviewed">Reviewed</option><option value="deprecated">Deprecated</option></select></label>
+          <label class="field"><span>Автор / команда</span><input id="ruleOwner" value="design-system-authors" /></label>
+        </div>
+        <label class="field"><span>Rationale</span><textarea id="rationale" rows="3" placeholder="Почему это правило существует"></textarea></label>
+        <label class="field"><span>Сообщение пользователю</span><textarea id="ruleMessage" rows="2" placeholder="Что нарушено или разрешено"></textarea></label>
+        <label class="field"><span>Как исправить</span><textarea id="remediationMessage" rows="2" placeholder="Безопасная понятная рекомендация"></textarea></label>
+        <label class="field"><span>Remediation intent</span><input id="remediationIntent" placeholder="restore-required-binding" /></label>
+
+        <div id="ruleSaveErrors" class="rule-save-errors" role="alert" hidden></div>
+        <div class="authoring-actions">
+          <button class="button button-danger-quiet" id="deleteRuleButton" type="button" disabled>Удалить</button>
+          <button class="button button-primary" id="saveRuleButton" type="button" disabled>Сохранить правило</button>
+        </div>
+        </div>
+      </aside>
+
+      <aside class="panel validation-panel validation-only" aria-label="Проверка экземпляра">
+        <div class="validation-panel-heading">
+          <div class="scenario-title">
+            <span class="eyebrow" id="validationComponentMeta">Manual authoring · Apollo contract v2</span>
+            <strong id="validationComponentName">Компонент не выбран</strong>
+          </div>
+          <div class="scenario-summary" aria-label="Сводка контракта">
+            <span class="metric"><strong id="validationRuleCount">0</strong> правил</span>
+            <span class="metric"><strong id="validationTargetCount">0</strong> целей</span>
+            <span class="metric metric-warning" id="validationWarningMetric" hidden><strong id="validationWarningCount">0</strong> замечаний</span>
+          </div>
+        </div>
+
+        <div class="validation-context" id="validationContext">
+          <label class="scenario-control validation-purpose-control" id="validationPurposeControl" hidden>
+            <span>Режим проверки</span>
+            <select id="validationPurposeSelect" aria-label="Режим проверки">
+              <option value="component-audit">Аудит компонента</option>
+              <option value="specification">По спецификации</option>
+            </select>
+          </label>
+          <label class="scenario-control validation-product-control">
+            <span>Product проверки</span>
+            <select id="validationProductSelect" aria-label="Product проверки">
+              <option value="">Выберите Product</option>
+              <option value="ab">Альфа-Бизнес · ab</option>
+              <option value="abm">Альфа-Бизнес Мобайл · abm</option>
+              <option value="am">Альфа-Мобайл · am</option>
+              <option value="ao">Альфа-Онлайн · ao</option>
+              <option value="site">Сайт · site</option>
+            </select>
+          </label>
+          <details id="validationInputs" class="validation-inputs" hidden>
+            <summary>Ожидаемые параметры</summary>
+            <p class="hint">Внешние ожидания, не свойства Figma. «Не задано» не означает false. При смене instance или режима ожидания сбрасываются.</p>
+            <div id="validationInputFields"></div>
+          </details>
+        </div>
+
+        <section class="transition-toolbar" id="transitionToolbar" hidden aria-label="Проверка перехода состояния">
+          <button class="button button-secondary" id="captureBeforeButton" type="button" disabled>Запомнить состояние до</button>
+          <button class="button button-secondary" id="clearBeforeButton" type="button" disabled>Сбросить пару</button>
+          <span id="transitionStatus" role="status">Для проверки перехода нужен исходный снимок того же instance.</span>
+        </section>
+
+        <div class="validation-primary-actions">
+          <button class="button button-primary" id="testSelectionButton" type="button" disabled>Проверить</button>
+          <button class="button button-secondary" id="downloadReportButton" type="button" disabled title="Отчёт содержит правила, названия и тексты слоёв. Сохраняется локально.">Скачать отчёт</button>
+        </div>
+
+        <section class="validation-results" aria-label="Результаты проверки">
+          <p id="testCompleteness" class="test-completeness" role="status" hidden></p>
+          <p id="ownershipCompleteness" class="test-completeness" hidden></p>
+          <div class="console-results" id="testResults"></div>
+        </section>
+
+        <details class="contract-diagnostics" id="contractDiagnostics">
+          <summary>
+            <span>Диагностика контракта</span>
+            <span id="compileSummary">Нет импортированного источника</span>
+          </summary>
+          <div class="contract-diagnostics-body">
+            <p id="compileDetails">Compiled JSON всегда read-only</p>
+            <button class="button button-secondary" id="showCompiledButton" type="button" disabled>Открыть Compiled JSON</button>
+          </div>
+        </details>
+      </aside>
+    </main>
+
+    <dialog class="contract-dialog" id="contractDialog">
+      <div class="dialog-heading"><div><span class="eyebrow">Manual source</span><h2>Паспорт ComponentContract</h2></div><button class="icon-button" id="closeContractButton" type="button" aria-label="Закрыть">×</button></div>
+      <div class="contract-dialog-body">
+        <section>
+          <h3>Идентичность</h3>
+          <div class="form-grid two-columns">
+            <label class="field"><span>Component ID</span><input id="componentIdInput" /></label>
+            <label class="field"><span>Family ID</span><input id="familyIdInput" /></label>
+            <label class="field"><span>Contract ID</span><input id="contractIdInput" /></label>
+            <label class="field"><span>Название</span><input id="familyInput" /></label>
+            <label class="field"><span>Слой</span><input id="layerInput" placeholder="core" /></label>
+            <label class="field"><span>Библиотека</span><input id="libraryInput" /></label>
+            <label class="field"><span>Активная платформа</span><input id="platformInput" /></label>
+            <label class="field"><span>Все платформы</span><input id="platformsInput" placeholder="desktop, mobile-web" /></label>
+            <label class="field"><span>Lifecycle</span><select id="lifecycleInput"><option value="active">Active</option><option value="scheduled">Scheduled</option><option value="deprecated">Deprecated</option></select></label>
+            <label class="field"><span>Primary componentKey</span><input id="componentKeyInput" /></label>
+            <label class="field"><span>Manual owner</span><input id="manualOwnerInput" /></label>
+          </div>
+        </section>
+        <section>
+          <h3>Семантика</h3>
+          <label class="field"><span>Назначение</span><textarea id="purposeInput" rows="3"></textarea></label>
+          <label class="field"><span>Когда использовать — по строке</span><textarea id="useWhenInput" rows="4"></textarea></label>
+          <div class="condition-editor">
+            <div class="condition-editor-heading">
+              <div><strong>Когда не использовать</strong><small>Добавьте отдельную Condition для каждого случая</small></div>
+              <button class="button button-secondary" id="addDoNotUseConditionButton" type="button">Добавить Condition</button>
+            </div>
+            <div class="condition-list" id="doNotUseWhenList"></div>
+            <p class="condition-empty" id="doNotUseWhenEmpty">Conditions пока нет. Добавьте случай, когда следует выбрать другой компонент или подход.</p>
+          </div>
+          <div class="form-grid two-columns">
+            <label class="field"><span>Связанные componentId</span><input id="relatedComponentIdsInput" placeholder="core.web.link, core.web.icon-button" /></label>
+            <label class="field"><span>Ключевые слова</span><input id="keywordsInput" placeholder="button, действие" /></label>
+          </div>
+        </section>
+        <section>
+          <h3>Машиночитаемые связи</h3>
+          <p class="field-help">Эти JSON-поля остаются частью manual source и редактируются здесь. Generated Athena facts в них не копируются. Code evidence v1 отдельно хранит доступность API, parity для профиля, acceptance receipts и publication. Owned occurrence и native SLOT используют закрытые versioned bindings; свободная строка transform не подтверждает API.</p>
+          <label class="field"><span>Representations</span><textarea class="json-field" id="representationsInput" rows="12"></textarea></label>
+          <label class="field"><span>Semantic API</span><textarea class="json-field" id="semanticApiInput" rows="14"></textarea></label>
+          <label class="field"><span>Текстовые цели при смене вложенного варианта</span><small>Явные связи {"targetId":"target.minor-text","anchorTargetId":"target.minor"}. Только TEXT внутри того же семейства компонента при независимом подтверждении библиотечного образца. Не разрешает swap или override. Пустой список отключает связи; изменённые правила требуют review.</small><textarea class="json-field" id="variantTextTargetsInput" rows="6"></textarea></label>
+          <label class="field"><span>Контекст сценария проверки · не API компонента</span><textarea class="json-field" id="validationContextInput" rows="7"></textarea></label>
+          <p class="field-help">Настройка component property и фактическая видимость — разные факты. Binding с targetId и path: visibility.effective вычисляет видимость цели с учётом родителей. Это read-only факт для проверки, не значение для Generation profiles.</p>
+          <label class="field"><span>Documentation refs</span><textarea class="json-field" id="documentationInput" rows="10"></textarea></label>
+          <label class="field"><span>Examples</span><textarea class="json-field" id="examplesInput" rows="12"></textarea></label>
+          <label class="field"><span>Normative decisions</span><textarea class="json-field" id="decisionsInput" rows="10"></textarea></label>
+          <h3>Прямые зависимости и состав</h3>
+          <p class="field-help">Один pin дочернего контракта можно связать с несколькими occurrences. Identity и состав проверяются включая скрытые экземпляры; исполнение дочерних правил зависит от доказанной видимости.</p>
+          <div id="directDependencyForm"></div>
+          <details><summary>Component dependencies · расширенный JSON</summary><label class="field"><span>Pins и bindings</span><small>Дочерний compiled контракт остаётся read-only. Прежний fixed-nested маршрут сохраняется.</small><textarea class="json-field" id="componentDependenciesInput" rows="12"></textarea></label></details>
+          <label class="field"><span>Generation profiles</span><textarea class="json-field" id="generationProfilesInput" rows="12"></textarea></label>
+          <label class="field"><span>Generation instructions — по строке</span><textarea id="generationInstructionsInput" rows="5"></textarea></label>
+        </section>
+      </div>
+      <div class="dialog-actions"><button class="button button-secondary" id="cancelContractButton" type="button">Отмена</button><button class="button button-primary" id="saveContractButton" type="button">Сохранить паспорт</button></div>
+    </dialog>
+
+    <dialog class="remap-dialog" id="remapDialog" aria-labelledby="remapTitle" aria-describedby="remapIntro">
+      <div class="dialog-heading"><div><span class="eyebrow">Manual binding · явное подтверждение</span><h2 id="remapTitle">Перепривязать цель</h2></div><button class="icon-button" id="closeRemapButton" type="button" aria-label="Отменить перепривязку">×</button></div>
+      <div class="remap-body">
+        <p id="remapIntro">Выберите существующую цель и новый объект текущего снимка. Target ID, semantic role и RuleID сохраняются. Figma-макет и generated facts не изменяются.</p>
+        <div class="remap-selectors">
+          <label class="field"><span>Существующая цель</span><select id="remapTargetSelect" data-native-select></select></label>
+          <label class="field"><span>Новый объект · выберите явно</span><select id="remapNodeSelect" data-native-select></select></label>
+        </div>
+        <p class="field-help" id="remapContext"></p>
+        <div class="remap-comparison"><section><h3>Было</h3><pre id="remapBefore"></pre></section><section><h3>Станет</h3><pre id="remapAfter"></pre></section></div>
+        <div id="remapIssues" role="status" aria-live="polite"></div>
+        <section><h3>Затронутые правила и примеры</h3><p class="field-help">Все перечисленные активные правила и примеры вернутся в Draft. Их ограничения, условия и управляющие пути не переписываются.</p><ul class="remap-rule-list" id="remapAffected"></ul></section>
+        <details><summary>Доступность свойств и lineage</summary><div id="remapEvidence"></div></details>
+        <label class="check-field remap-confirm"><input id="remapConfirm" type="checkbox" /><span>Подтверждаю новую привязку в этом представлении и повторный review затронутых правил.</span></label>
+      </div>
+      <div class="dialog-actions"><button class="button button-secondary" id="cancelRemapButton" type="button">Отмена</button><button class="button button-secondary" id="refreshRemapButton" type="button">Обновить сравнение</button><button class="button button-primary" id="applyRemapButton" type="button" disabled>Применить и перевести в Draft</button></div>
+    </dialog>
+
+    <dialog class="compiled-dialog" id="compiledDialog">
+      <div class="dialog-heading"><div><span class="eyebrow">Read-only artifact</span><h2>Compiled ComponentContract v2</h2></div><button class="icon-button" id="closeCompiledButton" type="button" aria-label="Закрыть">×</button></div>
+      <pre id="compiledOutput" tabindex="0"></pre>
+    </dialog>
+
+    <dialog class="test-details-dialog" id="testDetailsDialog">
+      <div class="test-details-heading">
+        <div>
+          <span class="eyebrow">Predicate Engine · diagnostics</span>
+          <h2 id="testDetailsTitle">Результаты проверки</h2>
+          <p id="testDetailsSummary">Выберите категорию результата</p>
+        </div>
+        <button class="icon-button" id="closeTestDetailsButton" type="button" aria-label="Закрыть">×</button>
+      </div>
+      <div class="test-filter-bar" id="testFilterBar" role="tablist" aria-label="Фильтр результатов"></div>
+      <div class="test-detail-list" id="testDetailList"></div>
+    </dialog>
+
+    <div class="rule-rationale-tooltip" id="ruleRationaleTooltip" role="tooltip" hidden>
+      <strong>Rationale</strong>
+      <p id="ruleRationaleText"></p>
+    </div>
+    <script>/*__COMPONENT_CONTRACT_EDITOR_JS__*/</script>
+  </body>
+</html>

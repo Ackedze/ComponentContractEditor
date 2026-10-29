@@ -1,0 +1,23 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),zlib=require('node:zlib');
+const core=require('../dist/core.cjs'),root=path.resolve(__dirname,'../../../shared/design-system_ab/experiments/web-corp/AmountStyles/authoring');
+const manual=require(path.join(root,'contract.manual.json')),compiled=require(path.join(root,'compiled/component-contract.v2.json')),runtime=core.prepareAuthoringPreviewContract(compiled);
+const fixture=(time='19-30-03-448')=>JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(root,`reports/fixtures/r5-editor-0.2.62/amount-styles.validation-report.2026-09-29T${time}Z.json.gz`))));
+const height=s=>core.evaluateCompiledContract(s,runtime).evaluations.find(e=>e.ruleId.includes('addon-does-not-exceed-text-line-height'));
+const clone=x=>JSON.parse(JSON.stringify(x));
+for(const [h,expected] of [[16,'compliant'],[20,'compliant'],[20.01,'violation'],[24,'violation']])test(`Addon height ${h} versus proven 20px`,()=>{const s=fixture().snapshot;s.nodes.find(n=>n.id==='preview:10').bounds.height=h;assert.equal(height(s).classification,expected);});
+test('hidden oversized Addon is not applicable',()=>{const s=fixture('19-30-53-102').snapshot;s.nodes.find(n=>n.id==='preview:10').bounds.height=100;assert.equal(height(s).classification,'not-applicable');});
+test('actual typography cannot enlarge the allowed Addon height',()=>{const s=fixture().snapshot;s.nodes.find(n=>n.id==='preview:5').text.lineHeight.value=100;s.nodes.find(n=>n.id==='preview:10').bounds.height=24;const e=height(s);assert.equal(e.classification,'violation');assert.equal(e.trace.expected.value,20);});
+test('missing observed height cannot pass',()=>{const s=fixture().snapshot;delete s.nodes.find(n=>n.id==='preview:10').bounds.height;assert.equal(height(s).classification,'human-review');});
+test('materialization is idempotent and preserves raw capture',()=>{const s=fixture().snapshot,raw=JSON.stringify(s),p=core.prepareValidationSnapshot(s,runtime);assert.equal(JSON.stringify(s),raw);assert.deepEqual(core.prepareValidationSnapshot(p,runtime),p);});
+for(const [label,mutate] of [
+ ['AUTO',n=>n.baseline.effective.text.lineHeight={unit:'AUTO'}],
+ ['missing reference line height',n=>delete n.baseline.effective.text.lineHeight],
+ ['unknown reference',n=>n.unknownFacts.push('baseline.effective.text')],
+ ['unmatched reference',n=>n.baselineProvenance.status='unresolved'],
+ ['invalid value',n=>n.baseline.effective.text.lineHeight.value=-1],
+ ['ambiguous text role',(n,s)=>s.nodes.push({...clone(n),id:'duplicate'})],
+])test('derived reference fails closed: '+label,()=>{const s=core.prepareValidationSnapshot(fixture().snapshot,runtime),n=s.nodes.find(n=>n.semantic.role==='major-text');mutate(n,s);s.nodes.forEach(n=>n.lineHeightReferenceV1={'major-text':999});core.materializeLineHeightReferences(s,runtime);assert(s.nodes.every(n=>n.lineHeightReferenceV1['major-text']===undefined&&n.unknownFacts.includes('lineHeightReferenceV1.major-text')));});
+test('percentage reference resolves only with proven positive fontSize',()=>{const s=core.prepareValidationSnapshot(fixture().snapshot,runtime),n=s.nodes.find(n=>n.semantic.role==='major-text');n.baseline.effective.text.lineHeight={unit:'PERCENT',value:150};n.baseline.effective.text.fontSize=16;core.materializeLineHeightReferences(s,runtime);assert.equal(n.lineHeightReferenceV1['major-text'],24);n.unknownFacts.push('baseline.effective.text.fontSize');core.materializeLineHeightReferences(s,runtime);assert.equal(n.lineHeightReferenceV1['major-text'],undefined);});
+test('line-height constraint roundtrips, validates role and forbids hardcoded competing bounds',()=>{for(const change of [c=>c.targetRole='missing',c=>c.max=100,c=>c.fact='bounds.width']){const m=clone(manual),r=m.rules.find(r=>r.id.endsWith('addon-does-not-exceed-text-line-height'));change(r.constraints[0]);assert(core.compileManualSource(m).issues.some(i=>i.code==='CONSTRAINT_LINE_HEIGHT'));}});
+test('cancelled single-line rule has one manual audit decision and no executable/policy copy',()=>{const id='component:web-corp.amount-styles.amount-stays-on-one-line';assert(!manual.rules.some(r=>r.id===id));assert(!compiled.customizationPolicy.some(r=>r.id===id));assert.equal(manual.decisions.filter(d=>d.retiredRuleIds?.includes(id)).length,1);const m=clone(manual);m.decisions.find(d=>d.retiredRuleIds).retiredRuleIds.push(manual.rules[0].id);assert(core.compileManualSource(m).issues.some(i=>i.code==='DECISION_RETIREMENT'));});
+test('38 historical captures retain exact old replay and unchanged existing checks',()=>{assert.equal(require(path.resolve(root,'../../../../scripts/review_amount_styles_r6')).review().results.length,38);});

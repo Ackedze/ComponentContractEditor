@@ -1,0 +1,30 @@
+{
+  "name": "component-contract-editor",
+  "version": "0.2.108",
+  "private": true,
+  "description": "Visual authoring MVP for the manual layer of Apollo ComponentContract v2.",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch",
+    "test": "npm run build && node --test tests/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "test:layout": "node tests/ui-layout.browser.cjs",
+    "test:focus-scroll": "node tests/ui-focus-scroll.browser.cjs",
+    "test:rule-sections": "node tests/rule-form-sections.browser.cjs",
+    "test:property-values": "node tests/property-value-picker.browser.cjs",
+    "test:code-passport": "node tests/code-passport.browser.cjs",
+    "test:export-names": "node tests/export-file-name.browser.cjs",
+    "test:occurrences": "node tests/occurrence-authoring.browser.cjs",
+    "test:collections": "node tests/collection-authoring.browser.cjs",
+    "test:dependency-import": "node tests/dependency-import.browser.cjs",
+    "test:existing-rule-edit": "node tests/existing-rule-edit.browser.cjs",
+    "test:asset-identity-lock": "node tests/asset-identity-lock.browser.cjs",
+    "validate": "npm run typecheck && npm test",
+    "test:authoring-admission": "node tests/authoring-admission.browser.cjs"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.82.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.0"
+  }
+}

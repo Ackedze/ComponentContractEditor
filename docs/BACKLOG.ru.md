@@ -1,5 +1,19 @@
 # ComponentContract Editor — Backlog
 
+## CC-COMPAT-MIXED-TEXT-FILL-01 — сравнение смешанных текстовых заливок
+
+31.10.2026. Core **0.1.25**, Editor **0.2.108**. Общие `effectiveFacts` и
+`matches-effective-baseline` используют независимые полные SOLID paint ranges
+для TEXT с общей mixed/null заливкой. Совпадение проходит, изменение цвета,
+токена или прозрачности нарушает правило; пропущенные/неподдержанные ranges
+остаются UNKNOWN. Нормы, схемы, операторы и версии не меняются.
+
+Editor использует канонический код Apollo через существующие wrappers:
+typecheck и целевая проверка общего reader без изменения Editor source/dist.
+Пересборка и ручная приёмка Editor не заявляются. Результаты и финальная сборка
+Apollo фиксируются в workspace `.local/fcs03-mixed-fill-core-2026-10-31`.
+Парная запись: [CC-COMPAT-MIXED-TEXT-FILL-01](../../Apollo/docs/ARCHITECTURE_BACKLOG.md).
+
 ## CC-COMPAT-MANUAL-EDIT-DATES-01 — дата реального изменения manual
 
 22.10.2026. Editor **0.2.108** / Core **0.1.23**. Исправлены два UI writer:

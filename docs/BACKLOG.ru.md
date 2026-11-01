@@ -3998,6 +3998,13 @@ Generation pilot и Ready не расширяются. Закрытие: точ�
 
 ### CC-COMPAT-NESTED-OWNER-TARGETS-01 — owner baseline и точные configured targets во вложенных проверках
 
+01.11.2026 — общий Core в Apollo дополнен typed границами SLOT/INSTANCE_SWAP
+через нейтральные контейнеры и inherited reference для glyph / text-style readers.
+Apollo проверен на 32 сохранённых кейсах и 17 вложенных компонентах; свежий
+Editor consumer build и UI в этой поставке не выполняются и не считаются принятыми.
+Подробности и критерии: парная запись Apollo с тем же ID. Schema/operators и
+нормы Editor не менялись; перед будущим потреблением нужны новые source/build pins.
+
 19.10.2026. **SHARED_IMPLEMENTATION / CONSUMER_AND_NATIVE_PENDING**.
 Core **0.1.20** / Editor **0.2.107**; точный согласованный patch применён.
 Общий reader сохраняет независимо доказанный effective baseline вложенного owner

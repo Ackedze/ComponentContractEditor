@@ -1,5 +1,20 @@
 # ComponentContract Editor — Backlog
 
+## CC-COMPAT-CAPABILITY-FACT-ORDER-01 — переносимая сортировка capabilities
+
+02.11.2026. Editor **0.2.108** / общий Core **0.1.25**. Общий compiler
+сортирует имена `capabilities.facts` без зависимости от host `localeCompare`.
+Это устраняет изменение хеша служебного массива между Node и code-unit
+сортировкой; нормы, факты, схемы и projection/hash guards сохранены.
+Apollo проверяет настоящий собранный loader и точные опубликованные
+контракты. Для Editor проверяется typecheck; его сборка и ручная приёмка
+не выполняются. Публикация Apollo отдельно; старые seals не изменяются.
+Локально проверено: регрессия loader, неизменность всех 61 опубликованных
+compiled hashes в трёх загрузчиках, validate Core 596 PASS и Apollo
+1065 PASS / 1 прежний skip, Editor typecheck PASS.
+Evidence: `.local/colleague-source-diagnosis-2026-11-02` в workspace.
+Парная запись: [CC-COMPAT-CAPABILITY-FACT-ORDER-01](../../Apollo/docs/ARCHITECTURE_BACKLOG.md).
+
 ## CC-COMPAT-MIXED-TEXT-FILL-01 — сравнение смешанных текстовых заливок
 
 31.10.2026. Core **0.1.25**, Editor **0.2.108**. Общие `effectiveFacts` и
